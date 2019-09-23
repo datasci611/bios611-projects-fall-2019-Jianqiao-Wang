@@ -19,5 +19,5 @@ The dataset records different kinds of support that UMDurham provided for homele
 
 #### Goals
 
-I'm interested in associations between time and different kinds of support. Did UMDurham provide more help as time goes by? I'm also interested in summary statistics about support this program provided, such as average food pound per person and average finicial support. Moreover, I want to know if there is a difference among different families or people. As for my future analysis, variables such as Client File Number, Date and Food Pounds will play an important role.
+I'm interested in associations between time and different kinds of support. Did UMDurham provide more help as time goes by? I'm also interested in summary statistics about support this program provided, such as average food pound per person. Moreover, I want to know if there is a difference among different families or people. As for my future analysis, variables such as Client File Number, Date and Food Pounds will play an important role.
 
