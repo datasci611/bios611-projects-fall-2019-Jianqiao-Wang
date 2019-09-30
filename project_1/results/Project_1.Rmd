@@ -2,8 +2,8 @@
 title: 'Project 1: Urban Ministries Durham'
 author: "Jianqiao Wang"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r warning=FALSE, include=FALSE}
@@ -90,7 +90,8 @@ Next, we try to figure out average food pounds per person UMD provided. Intuitiv
 ```{r warning=FALSE, message=FALSE, out.width='50%', fig.align='center'}
 ggplot(umd_df, aes(Food.Provided.for, Food.Pounds, color=year)) +
   geom_point(size=1) + 
-  labs(x='Number of People', y='Food Pounds') +
+  labs(x='Number of People', y='Food Pounds', title='Average Food Pounds per person') +
+  theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 It is very interesting to note that there are two groups in this plot and they are not relevant to time. Therefore, there is very likely a difference in average food pounds per person UMD provided. In order to see that difference, we need to model the two groups separately. To justify which group that these data points belongs to, we could use EM clustering method.
@@ -109,7 +110,7 @@ The plot of data points by group is as follows:
 ggplot(umd_df, aes(x=Food.Provided.for, y=Food.Pounds, color=cluster, group=cluster)) +
   geom_point() + 
   geom_smooth(method='lm', se=FALSE, formula=y~x+0) +
-  labs(x='Number of People', y='Food Pounds') + 
+  labs(x='Number of People', y='Food Pounds', title='Average Food Pounds per person') + 
   theme(plot.title = element_text(hjust = 0.5)) +
   theme_minimal() +
   scale_color_discrete('Group')
