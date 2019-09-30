@@ -40,17 +40,23 @@ First of all, we summarize the data into three plots to see what kind of data sh
 ```{r out.width='33.33%', echo=FALSE}
 ggplot(umd_df, aes(Food.Provided.for, Food.Pounds)) +
   geom_point(size=0.5) +
-  labs(x='Number of People Every Day', y='Total Food Pounds Every Day', title='Total Food Pounds Every Day by Number of People Every Day') + 
+  labs(x='Number of People Every Day', 
+       y='Total Food Pounds Every Day', 
+       title='Total Food Pounds Every Day by Number of People Every Day') +
   theme(plot.title = element_text(hjust = 0.5))
 
 ggplot(umd_df, aes(Date, Food.Provided.for)) + 
   geom_point(size=0.5) + 
-  labs(x='Time', y='Number of Every Day', title='Number of People Every Day over Time') + 
+  labs(x='Time', 
+       y='Number of Every Day', 
+       title='Number of People Every Day over Time') + 
   theme(plot.title = element_text(hjust = 0.5))
 
 ggplot(umd_df, aes(Date, Food.Pounds)) + 
   geom_point(size=0.5) + 
-  labs(x='Time', y='Total Food Pounds Every Day', title='Total Food Pounds Every Day over Time') + 
+  labs(x='Time', 
+       y='Total Food Pounds Every Day', 
+       title='Total Food Pounds Every Day over Time') + 
   theme(plot.title = element_text(hjust = 0.5))
 ```
 As we can see in the first plot, there are some outliers in the data that do not make sense in real life. In the second and third plot, we notice that UMD even contains data after 2020, which is impossible. Therefore, we have to remove those data before analysis. Moreover, most data lies between year 2000 and year 2020. Therefore, we will only focus on data during that time.
@@ -68,7 +74,9 @@ number_of_people_every_day = aggregate(Food.Provided.for~Date, umd_df, sum)
 ```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
 ggplot(number_of_people_every_day, aes(x=Date, y=Food.Provided.for)) + 
   geom_point(size=0.2) + 
-  labs(x='Time', y='Number of People Every Day', title='Number of People Every Day over Time') + 
+  labs(x='Time', 
+       y='Number of People Every Day', 
+       title='Number of People Every Day over Time') + 
   theme(plot.title = element_text(hjust = 0.5)) +
   geom_smooth()
 ```
@@ -78,7 +86,9 @@ total_food_pound_every_day = aggregate(Food.Pounds~Date, umd_df, sum)
 ```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
 ggplot(total_food_pound_every_day, aes(x=Date, y=Food.Pounds)) + 
   geom_point(size=0.2) +
-  labs(x='Time', y='Total Food Pounds Every Day', title='Total Food Pounds Every Day over Time') + 
+  labs(x='Time', 
+       y='Total Food Pounds Every Day', 
+       title='Total Food Pounds Every Day over Time') + 
   theme(plot.title = element_text(hjust = 0.5)) +
   geom_smooth()
 ```
@@ -90,7 +100,9 @@ Next, we try to figure out average food pounds per person UMD provided. Intuitiv
 ```{r warning=FALSE, message=FALSE, out.width='50%', fig.align='center'}
 ggplot(umd_df, aes(Food.Provided.for, Food.Pounds, color=year)) +
   geom_point(size=1) + 
-  labs(x='Number of People', y='Food Pounds', title='Average Food Pounds per person') +
+  labs(x='Number of People', 
+       y='Food Pounds', 
+       title='Average Food Pounds per person') +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))
 ```
@@ -110,12 +122,16 @@ The plot of data points by group is as follows:
 ggplot(umd_df, aes(x=Food.Provided.for, y=Food.Pounds, color=cluster, group=cluster)) +
   geom_point() + 
   geom_smooth(method='lm', se=FALSE, formula=y~x+0) +
-  labs(x='Number of People', y='Food Pounds', title='Average Food Pounds per person') + 
-  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x='Number of People', 
+       y='Food Pounds', 
+       title='Average Food Pounds per person') + 
   theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) +
   scale_color_discrete('Group')
 ```
-We can see that EM algorithm fits the data well. Intuitively, data points in each group seem to fit well by simple linear regression and the intercepts should be zero since UMD does not need to provide food if there is no people. The fitted linear model has been plotted in the above figure. For group 1, the R squared statistic is 
+We can see that EM algorithm fits the data well. Intuitively, data points in each group seem to fit well by simple linear regression and the intercepts should be zero since UMD does not need to provide food if there is no people. The fitted linear model has been plotted in the above figure. The specific model is 
+$$\text{Food.Pounds}=\beta\cdot\text{Food.Provided.for}+\epsilon$$
+For group 1, the R squared statistic is 
 ```{r include=FALSE, message=FALSE, warning=FALSE}
 model = list()
 model$one = lm(Food.Pounds~Food.Provided.for + 0, filter(umd_df, cluster==1))

@@ -22,7 +22,8 @@ umd_df = umd_df %>%
 # Food.Pounds ~ Food.Provided.for
 ggplot(umd_df, aes(Food.Provided.for, Food.Pounds)) +
   geom_point(size=0.5) +
-  labs(x='Number of People Provided for', y='Food Pounds')
+  labs(x='Number of People Provided for', 
+       y='Food Pounds')
 
 
 # Food.Provided.for ~ Date
