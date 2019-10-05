@@ -15,15 +15,20 @@ description = read.csv('~/Documents/GitHub/bios611-projects-fall-2019-Jianqiao-W
 ```
 
 ### Backgroud and Introduction
-[Urban Ministries of Durham (UMD)](http://www.umdurham.org/) is a program that helps homeless people by providing neighbors with emergency shelter and case management to help them overcome barriers such as unemployment, medical and mental health problems, past criminal convictions and addiction. The data provided by UMD recorded different kinds of support that UMD provided for homeless people from 1931. It has more than 10 variables including date, family identifiers, finicial support, etc. 
+[Urban Ministries of Durham (UMD)](http://www.umdurham.org/) is a program that helps homeless people by providing neighbors with emergency shelter and case management to help them overcome barriers such as unemployment, medical and mental health problems, past criminal convictions and addiction. The data provided by UMD recorded different kinds of support that UMD provided for homeless people from 1931. It has more than 10 variables including date, family identifiers, financial support, etc. 
 
 Since food plays an important role in helping homeless people, it is very useful to extract information about food from data. Therefore, analysis in this report will mostly focus on food that UMD provides. Specifically,
 
-* Does the total number of people UMD provided food for every day increase?
+* Does the total number of people recieving food every day increase?
 * Does the total food pounds UMD provided every day increase?
 * What is the average food pounds per person? Is there a difference among different families and people?
 
-The analysis will mostly based on variables Date, Food.Pounds and Food.Provided.for.
+The analysis will mostly based on variables Date, Food.Pounds and Food.Provided.for, where
+
+* Date: Time.
+* Food.Pounds: Food Pounds UMD provided one time.
+* Food.Provided.for: Number of People Recieving Food one time.
+
 ```{r warning=FALSE}
 umd_df = select(umd_df, c(Date, Food.Provided.for, Food.Pounds))
 ```
@@ -48,7 +53,7 @@ ggplot(umd_df, aes(Food.Provided.for, Food.Pounds)) +
 ggplot(umd_df, aes(Date, Food.Provided.for)) + 
   geom_point(size=0.5) + 
   labs(x='Time', 
-       y='Number of Every Day', 
+       y='Number of People Every Day', 
        title='Number of People Every Day over Time') + 
   theme(plot.title = element_text(hjust = 0.5))
 
@@ -59,7 +64,7 @@ ggplot(umd_df, aes(Date, Food.Pounds)) +
        title='Total Food Pounds Every Day over Time') + 
   theme(plot.title = element_text(hjust = 0.5))
 ```
-As we can see in the first plot, there are some outliers in the data that do not make sense in real life. In the second and third plot, we notice that UMD even contains data after 2020, which is impossible. Therefore, we have to remove those data before analysis. Moreover, most data lies between year 2000 and year 2020. Therefore, we will only focus on data during that time.
+As we can see in the first plot, there are some outliers (Number of People Every Day > 75  or Total Food Pounds Every Day > 4e+05) in the data that do not make sense in real life. In the second and third plot, we notice that UMD even contains data after 2020, which must be a typo. We will only consider data before the day that we begin our analysis, that is 2019-09-24. Moreover, the data before 2000 is too sparse and discrete so that the data may not provide sufficient and reliable information. Therefore, we will only focus on data during 2000 and 2019, which will provide most information in recent years.
 ```{r warning=FALSE}
 umd_df = umd_df %>%
   filter(Food.Pounds < 100, Food.Provided.for < 60) %>%
@@ -92,21 +97,29 @@ ggplot(total_food_pound_every_day, aes(x=Date, y=Food.Pounds)) +
   theme(plot.title = element_text(hjust = 0.5)) +
   geom_smooth()
 ```
-Generally, total food pounds every day and number of people that UMD helped every day have the same trend over time. Both of them increase during 2005 and 2017. However, the growth slowed down during 2012 and 2013. Moreover, total food pounds every day and number of people every data start to decreases after 2017.
+Generally, total food pounds every day and number of people that UMD helped every day have the same trend over time. Both of them increase during 2005 and 2017, which may be attributable to UMD's great work. However, the growth slowed down during 2012 and 2013, which indicates that UMD may end some people's homelessness. Moreover, total food pounds every day and number of people every data start to decreases after 2017, which indicates that UMD has ended many people's homelessness since 2017.
 
-### Average Food Pounds per person
+### Average Food Pounds per Person
 
-Next, we try to figure out average food pounds per person UMD provided. Intuitively, UMD may treat people in the same way and provide the same amount of food per person. We first give the plot of total food pounds every day and number of people every day.
+Next, we try to figure out average food pounds per person UMD provided. Intuitively, UMD should treat people in the same way and provide the same amount of food per person. To see if there is a difference in it, we give the plot of food pounds for one time by corresponding number of people. If there is significant divide of all data points, the difference may exist.
 ```{r warning=FALSE, message=FALSE, out.width='50%', fig.align='center'}
 ggplot(umd_df, aes(Food.Provided.for, Food.Pounds, color=year)) +
   geom_point(size=1) + 
   labs(x='Number of People', 
        y='Food Pounds', 
-       title='Average Food Pounds per person') +
+       title='Food Pounds by Number of People') +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))
 ```
-It is very interesting to note that there are two groups in this plot and they are not relevant to time. Therefore, there is very likely a difference in average food pounds per person UMD provided. In order to see that difference, we need to model the two groups separately. To justify which group that these data points belongs to, we could use EM clustering method.
+It is very interesting to note that there are two significant groups in this plot and they are not relevant to time. Therefore, there is very likely a difference in average food pounds per person UMD provided. In order to see that difference, we need to model the two groups separately. To justify which group that these data points belong to, we could use EM clustering method. EM algorithm finds the cluster of data points by iteratively maximizing marginal log likelihood of observed data. Formally, let $X$ be observed data, $Z$ be the latent variable, which is the estimated cluster in our problem, and $\theta$ be unknown parameters along with a likelihood function $L(\theta;X,Z)=p(X,Z|\theta)$. Then the EM algorithm finds clusters for each data points by iteratively applying following steps:
+
+* _Expectation_ _Step_:
+  + $Q(\theta|\theta^{(t)})=\mathbb{E}_{Z^{(t)}|X,\theta^{(t)}}[\log(L(\theta;X, Z^{(t)}))]$
+* _Maximization_ _Step_: 
+  + $\theta^{(t+1)}=\arg\max_{\theta}Q(\theta|\theta^{(t)})$
+  + $Z^{(t+1)}|X = \arg\max_{Z}\log(L(\theta^{(t+1)};X,Z))$. 
+
+
 ```{r message=FALSE, echo=FALSE}
 # EM clustering, 2 cluster
 fit = umd_df %>%
@@ -117,14 +130,14 @@ umd_df$cluster = as.factor(fit$classification)
 ```{r include=FALSE}
 umd_df$uncertainty = fit$uncertainty
 ```
-The plot of data points by group is as follows:
+The plot of data points by estimated group through EM algorithm is as follows:
 ```{r message=FALSE, fig.align='center', out.width='50%', warning=FALSE}
 ggplot(umd_df, aes(x=Food.Provided.for, y=Food.Pounds, color=cluster, group=cluster)) +
   geom_point() + 
   geom_smooth(method='lm', se=FALSE, formula=y~x+0) +
   labs(x='Number of People', 
        y='Food Pounds', 
-       title='Average Food Pounds per person') + 
+       title='Food Pounds by Number of People') + 
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5)) +
   scale_color_discrete('Group')
@@ -153,6 +166,10 @@ Therefore, the linear model fits well for group 2. The estimated coefficient is
 model$two$coefficients
 ```
 Then, UMD provides 0.62 pounds of food per person for group 2. There is a big difference in average food pounds per person between these two groups, which is counter-intuitive.
+
+### Conclustion
+
+In this report, we analysis the trend of food provided and number of people UMD provided food for overtime. Generally, both of them increases before 2017. They began to decrease since 2017, which may be resulted from great work of UMD. UMD is ending homelessness! We also find out that people that UMD provided food for can be divided into two groups. UMD provided different average food pounds per person for two groups. We calculate average food pounds per person for each group, which is the coefficient of number of people. 
 
 ### Future Analysis
 
