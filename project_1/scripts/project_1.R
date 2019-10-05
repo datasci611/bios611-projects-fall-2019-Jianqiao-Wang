@@ -1,7 +1,7 @@
 library(tidyverse)
 library(mclust)
 library(lubridate)
-
+set.seed(0)
 # ---Data Preprocessing---
 # Load UMD data
 # Select Date, Food.Provided.for and Food.Pounds columns.
@@ -21,22 +21,34 @@ umd_df = umd_df %>%
 # Plot the data points to see which data (outliers) should be removed
 # Food.Pounds ~ Food.Provided.for
 ggplot(umd_df, aes(Food.Provided.for, Food.Pounds)) +
-  geom_point(size=0.5) +
+  geom_point(size=3) +
   labs(x='Number of People Provided for', 
-       y='Food Pounds')
+       y='Food Pounds') +
+  theme(axis.title=element_text(size=24), 
+        axis.text=element_text(size=20, face='bold')) +
+  ggsave('food_people.png', 
+         path = '~/Desktop/Project_1_slides/',)
 
 
 # Food.Provided.for ~ Date
 ggplot(umd_df, aes(Date, Food.Provided.for)) + 
-  geom_point(size=0.5) + 
+  geom_point(size=3) + 
   labs(x='Time', 
-       y='Number of People Provided for')
+       y='Number of People Provided for') +
+  theme(axis.title=element_text(size=24), 
+        axis.text=element_text(size=20, face='bold')) +
+  ggsave('people_date.png', 
+         path = '~/Desktop/Project_1_slides/',)
 
 # Food.Pounds ~ Date
 ggplot(umd_df, aes(Date, Food.Pounds)) + 
-  geom_point(size=0.5) + 
+  geom_point(size=3) + 
   labs(x='Time', 
-       y='Food Pounds')
+       y='Food Pounds') + 
+  theme(axis.title=element_text(size=24), 
+        axis.text=element_text(size=20, face='bold')) +
+  ggsave('food_time.png', 
+         path = '~/Desktop/Project_1_slides/',)
 
 # Remove outliers and data points after 2020
 umd_df = umd_df %>%
@@ -49,23 +61,33 @@ umd_df = umd_df %>%
 # ---Food Plots over Time---
 # Figure 1: Number of People that UMD provided food for Every Day over Time
 total_food_provided_for = aggregate(Food.Provided.for~Date, umd_df, sum)
-ggplot(number_of_people_every_day, aes(x=Date, y=Food.Provided.for)) + 
+ggplot(total_food_provided_for, aes(x=Date, y=Food.Provided.for)) + 
   geom_point(size=0.2) + 
   labs(x='Time', 
-       y='Number of People Every Day', 
-       title='Number of People Every Day over Time') + 
+       y='Number of People Receiving Food Every Day', 
+       title='Number of People over Time') + 
   theme(plot.title = element_text(hjust = 0.5)) +
-  geom_smooth()
+  theme(axis.title=element_text(size=30), 
+        title =element_text(size=20),
+        axis.text=element_text(size=18, face='bold')) +
+  geom_smooth() +
+  ggsave('peopleovertime.png', 
+         path = '~/Desktop/Project_1_slides/',)
 
 # Figure 2: Total Food Pounds UMD provided Every Day over Time
 total_food_pound = aggregate(Food.Pounds~Date, umd_df, sum)
-ggplot(total_food_pound_every_day, aes(x=Date, y=Food.Pounds)) + 
+ggplot(total_food_pound, aes(x=Date, y=Food.Pounds)) + 
   geom_point(size=0.2) +
   labs(x='Time', 
        y='Total Food Pounds Every Day', 
        title='Total Food Pounds Every Day over Time') + 
   theme(plot.title=element_text(hjust=0.5)) +
-  geom_smooth()
+  theme(axis.title=element_text(size=30), 
+        title =element_text(size=20),
+        axis.text=element_text(size=18, face='bold')) +
+  geom_smooth() +
+  ggsave('foodovertime.png', 
+         path = '~/Desktop/Project_1_slides/',)
 
 
 
@@ -73,12 +95,15 @@ ggplot(total_food_pound_every_day, aes(x=Date, y=Food.Pounds)) +
 # ---Average Food Pounds per person---
 # Figure 3: Average Food Pounds per person
 ggplot(umd_df, aes(Food.Provided.for, Food.Pounds, color=year)) +
-  geom_point(size = 1) + 
+  geom_point(size = 2.5) + 
   labs(x='Number of People', 
        y='Food Pounds', 
-       title='Average Food Pounds per person') +
+       title='Food Pounds by Number of People Receiving Food') +
+  theme_minimal() +
   theme(plot.title=element_text(hjust=0.5)) +
-  them_minimal()
+  theme(axis.title=element_text(size=24), title =element_text(size=20)) +
+  ggsave('average.png', 
+         path = '~/Desktop/Project_1_slides/',)
 
 # Fit EM clustering algorithm
 # Divide data points into 2 clusters by Food.Provided.for and Food.Pounds
@@ -92,14 +117,17 @@ umd_df$uncertainty = fit$uncertainty
 
 # Figure 4: Average Food Pounds per person colored by cluster
 ggplot(umd_df, aes(x=Food.Provided.for, y=Food.Pounds, color=cluster, group=cluster)) +
-  geom_point() + 
+  geom_point(size=2.5) + 
   geom_smooth(method='lm', se=FALSE, formula=y~x-1) +
   labs(x='Number of People', 
        y='Food Pounds', 
-       title='Average Food Pounds per person') + 
+       title='Food Pounds by Number of People Receiving Food') + 
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5)) +
-  scale_color_discrete('Group')
+  theme(axis.title=element_text(size=24), title =element_text(size=20)) +
+  scale_color_discrete('Group') +
+  ggsave('average_em.png', 
+         path = '~/Desktop/Project_1_slides/',)
 
 # Fit data with simple linear model without intercept by group
 model = list()

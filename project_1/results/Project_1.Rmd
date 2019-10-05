@@ -19,7 +19,7 @@ description = read.csv('~/Documents/GitHub/bios611-projects-fall-2019-Jianqiao-W
 
 Since food plays an important role in helping homeless people, it is very useful to extract information about food from data. Therefore, analysis in this report will mostly focus on food that UMD provides. Specifically,
 
-* Does the total number of people recieving food every day increase?
+* Does the total number of people receiving food every day increase?
 * Does the total food pounds UMD provided every day increase?
 * What is the average food pounds per person? Is there a difference among different families and people?
 
@@ -27,7 +27,7 @@ The analysis will mostly based on variables Date, Food.Pounds and Food.Provided.
 
 * Date: Time.
 * Food.Pounds: Food Pounds UMD provided one time.
-* Food.Provided.for: Number of People Recieving Food one time.
+* Food.Provided.for: Number of People Receiving Food one time.
 
 ```{r warning=FALSE}
 umd_df = select(umd_df, c(Date, Food.Provided.for, Food.Pounds))
@@ -97,7 +97,7 @@ ggplot(total_food_pound_every_day, aes(x=Date, y=Food.Pounds)) +
   theme(plot.title = element_text(hjust = 0.5)) +
   geom_smooth()
 ```
-Generally, total food pounds every day and number of people that UMD helped every day have the same trend over time. Both of them increase during 2005 and 2017, which may be attributable to UMD's great work. However, the growth slowed down during 2012 and 2013, which indicates that UMD may end some people's homelessness. Moreover, total food pounds every day and number of people every data start to decreases after 2017, which indicates that UMD has ended many people's homelessness since 2017.
+Generally, total food pounds every day and number of people that UMD helped every day have the same trend over time. Both of them increase during 2005 and 2017, which may be attributable to UMD's great work. However, the growth slowed down during 2012 and 2013, which indicates that UMD may end some people's homelessness. Moreover, total food pounds every day and number of people every data start to decrease after 2017, which indicates that UMD has ended many people's homelessness since 2017.
 
 ### Average Food Pounds per Person
 
@@ -142,7 +142,7 @@ ggplot(umd_df, aes(x=Food.Provided.for, y=Food.Pounds, color=cluster, group=clus
   theme(plot.title = element_text(hjust = 0.5)) +
   scale_color_discrete('Group')
 ```
-We can see that EM algorithm fits the data well. Intuitively, data points in each group seem to fit well by simple linear regression and the intercepts should be zero since UMD does not need to provide food if there is no people. The fitted linear model has been plotted in the above figure. The specific model is 
+We can see that EM algorithm fits the data well. Intuitively, data points in each group seem to be fitted well by simple linear regression and the intercepts should be zero since UMD does not need to provide food if there is no people. The fitted linear model has been plotted in the above figure. The specific model is 
 $$\text{Food.Pounds}=\beta\cdot\text{Food.Provided.for}+\epsilon$$
 For group 1, the R squared statistic is 
 ```{r include=FALSE, message=FALSE, warning=FALSE}
@@ -169,10 +169,10 @@ Then, UMD provides 0.62 pounds of food per person for group 2. There is a big di
 
 ### Conclustion
 
-In this report, we analysis the trend of food provided and number of people UMD provided food for overtime. Generally, both of them increases before 2017. They began to decrease since 2017, which may be resulted from great work of UMD. UMD is ending homelessness! We also find out that people that UMD provided food for can be divided into two groups. UMD provided different average food pounds per person for two groups. We calculate average food pounds per person for each group, which is the coefficient of number of people. 
+In this report, we analysis the trend of food provided and number of people UMD provided food for overtime. Generally, both of them increase before 2017. They began to decrease since 2017, which may be resulted from great work of UMD. UMD is ending homelessness! We also find out that people that UMD provided food for can be divided into two groups. UMD provided different average food pounds per person for two groups. We calculate average food pounds per person for each group, which is the coefficient of number of people. 
 
 ### Future Analysis
 
-Future analysis may focus on the reason why differences exixt between two groups. More variables should be added into analysis such as financial support and clothing items.
+Future analysis may focus on the reason why differences exist between two groups. More variables should be added into analysis such as financial support, clothing items and identity numbers.
 
 
