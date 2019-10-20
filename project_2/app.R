@@ -26,6 +26,7 @@ ui <- dashboardPage(
       tabItem(tabName = "Q1-3",
         fluidRow(
           sidebarPanel(
+            htmlOutput("trend_text"),
             selectInput('trend_variable',
                         'Type of Help UMD Provided',
                         c("Number of People Receiving Food", "Food Pounds", "Clothing Items")
@@ -70,6 +71,9 @@ server <- function(input, output) {
                "</li><li>", purpose[2], 
                "</li><li>", purpose[3],
                "</li><li>", purpose[4], "</li><ul>"))
+  })
+  output$trend_text <- renderUI({
+    HTML("Please select a type of help UMD provided and view its trend over time:")
   })
   output$trend_plot <- renderPlot({
     trend(input$trend_variable)

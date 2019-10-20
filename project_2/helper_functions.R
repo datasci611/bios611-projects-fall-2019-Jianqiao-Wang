@@ -105,8 +105,7 @@ average_food_plot <- ggplot(food_data, aes(x=`Number of People Receiving Food`, 
                        y='Food Pounds',
                        title='Food Pounds against Number of People Receiving Food') +
                   theme_minimal() +
-                  theme(plot.title = element_text(hjust = 0.5)) +
-                  theme(axis.title=element_text(size=13), title = element_text(size=15))
+                  theme(plot.title = element_text(hjust = 0.5))
 # Fit data with simple linear model without intercept by group
 model = list()
 model$one = lm(`Food Pounds`~`Number of People Receiving Food`-1, filter(food_data, Group==1))
