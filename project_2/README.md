@@ -34,5 +34,3 @@ Packages ```tidyverse``` and ```ggplot``` is used to process and plot the data. 
 
 Link to shiny app: <https://jianqiao-wang.shinyapps.io/project_2/>
 
-To find the trend of specific kind of help over time, we may plot this variable by time to see if it is increasing or decreasing. As for average food pounds per person, linear model will be preferred. The coefficient will be average food pounds.
-
