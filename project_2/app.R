@@ -3,9 +3,12 @@ library(shinydashboard)
 # setwd('~/Documents/GitHub/bios611-projects-fall-2019-Jianqiao-Wang/project_2/')
 source('helper_functions.R')
 
-# Define UI for application that draws a histogram
+# Define UI for application that display plots and analysis
 ui <- dashboardPage(
+  # Title
   dashboardHeader(title = "Project 2"),
+  
+  # Sidebar
   dashboardSidebar(
     sidebarMenu(
       menuItem("Background", tabName = "background", icon = icon("Background")),
@@ -15,16 +18,24 @@ ui <- dashboardPage(
                menuSubItem("Question 4", tabName = "Q4", icon = icon("Question 2")))
     )
   ),
+  
+  # Body to display plots and analysis
   dashboardBody(
     tabItems(
+      # Background
       tabItem(tabName = "background",
         htmlOutput("background")
       ), 
+      
+      # Purpose of Analysis
       tabItem(tabName = "purpose",
         htmlOutput("purpose")
       ),
+      
+      # Question 1-3
       tabItem(tabName = "Q1-3",
         fluidRow(
+          # Sidebar to choose a type of help UMD provided
           sidebarPanel(
             htmlOutput("trend_text"),
             selectInput('trend_variable',
@@ -32,6 +43,8 @@ ui <- dashboardPage(
                         c("Number of People Receiving Food", "Food Pounds", "Clothing Items")
             )
           ),
+          
+          # Trend of a variable over time
           mainPanel(
             plotOutput("trend_plot"),
             htmlOutput("trend_interpretation")
@@ -39,11 +52,15 @@ ui <- dashboardPage(
         )
       ),
       
+      # Question 4
       tabItem(tabName = "Q4",
+          # Plot and interpretation of plot for Questoin 4
           mainPanel(
             plotOutput("average_food"),
             htmlOutput("average_food_interpretation")
           ),
+          
+          # Calculator sidebar to choose group and number of people
           sidebarPanel(
             calculator,
             selectInput('group',
@@ -52,7 +69,7 @@ ui <- dashboardPage(
             ),
             numericInput('number_of_people',
                          'Number of People',
-                         value=1, min=1, max=60, step=1
+                         value=1, min=1, max=100, step=1
             ),
             textOutput("food_pounds")
           )
@@ -61,32 +78,46 @@ ui <- dashboardPage(
   )
 )
 
+# Define server
 server <- function(input, output) {
   set.seed(435)
+  
+  # background
   output$background <- renderUI({
    HTML(paste(umd_description, data_description, sep="<br/>"))
   })
+  
+  # Purpose of analysis
   output$purpose <- renderUI({
     HTML(paste("<ul><li>", purpose[1], 
                "</li><li>", purpose[2], 
                "</li><li>", purpose[3],
                "</li><li>", purpose[4], "</li><ul>"))
   })
+  
+  # Interpretation of trend sidebar
   output$trend_text <- renderUI({
     HTML("Please select a type of help UMD provided and view its trend over time:")
   })
+  
+  # Plot of trend_variable over time
   output$trend_plot <- renderPlot({
     trend(input$trend_variable)
   })
+  
+  # Interpretation of trend plot
   output$trend_interpretation <- renderUI({
     HTML(paste("<ul><li>", trend_interpretation[input$trend_variable][1,], 
                "</li><li>", trend_interpretation[input$trend_variable][2,], 
                "</li><li>", trend_interpretation[input$trend_variable][3,], "</li><ul>"))
   })
   
+  # Average food per person plot for Question 4
   output$average_food <- renderPlot({
     average_food_plot
   })
+  
+  # Interpretation of plot in Question 4
   output$average_food_interpretation <- renderUI({
     HTML(paste("<ul><li>", average_food_interpretation[1], 
                "</li><li>", average_food_interpretation[2], 
@@ -98,6 +129,7 @@ server <- function(input, output) {
                "</li><ul>"))
   })
   
+  # Estimate of food pounds in calculator
   output$food_pounds <- renderText({
     if (input$group==1) {
       paste('Estimated Food Pounds UMD should provide for', input$number_of_people, ' people in Group One:', round(model$one$coefficients * input$number_of_people, 2), 'pounds')
