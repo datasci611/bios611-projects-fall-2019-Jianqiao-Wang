@@ -8,7 +8,7 @@ Urban Ministries of Durham helps homeless people by providing neighbors with eme
 
 #### Data
 
-The dataset records different kinds of support that UMDurham provided for homeless people in the last several years. It has more than 10 variables including date, family identifiers, finicial support, etc. Some variables are explained in the following table:
+The [dataset](https://github.com/biodatascience/datasci611/tree/gh-pages/data/project1_2019) records different kinds of support that UMDurham provided for homeless people in the last several years. It has more than 10 variables including date, family identifiers, finicial support, etc. Some variables are explained in the following table:
 
 | Date               | Date service was provided                                   |
 | ------------------ | :---------------------------------------------------------- |

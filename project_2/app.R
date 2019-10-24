@@ -24,12 +24,18 @@ ui <- dashboardPage(
     tabItems(
       # Background
       tabItem(tabName = "background",
-        htmlOutput("background")
+        tags$p(umd_description),
+        "The",
+        tags$a(href="https://github.com/biodatascience/datasci611/tree/gh-pages/data/project1_2019", "data"),
+        data_description
       ), 
       
       # Purpose of Analysis
       tabItem(tabName = "purpose",
-        htmlOutput("purpose")
+        tags$h2("Purpose of Analysis"),
+        htmlOutput("purpose"),
+        tags$h2("Methods"),
+        htmlOutput("method")
       ),
       
       # Question 1-3
@@ -82,17 +88,18 @@ ui <- dashboardPage(
 server <- function(input, output) {
   set.seed(435)
   
-  # background
-  output$background <- renderUI({
-   HTML(paste(umd_description, data_description, sep="<br/>"))
-  })
-  
   # Purpose of analysis
   output$purpose <- renderUI({
     HTML(paste("<ul><li>", purpose[1], 
                "</li><li>", purpose[2], 
                "</li><li>", purpose[3],
                "</li><li>", purpose[4], "</li><ul>"))
+  })
+  
+  # Methods
+  output$method <- renderUI({
+    HTML(paste("<ul><li>", method[1],
+               "</li><li>", method[2], "</li><ul>"))
   })
   
   # Interpretation of trend sidebar

@@ -3,9 +3,9 @@ library(mclust)
 library(lubridate)
 library(anomalize)
 
-# ---Background---
+# ---Background of UMD and description of data---
 umd_description = "Urban Ministries of Durham (UMD) is a program that helps homeless people by providing neighbors with emergency shelter and case management to help them overcome barriers such as unemployment, medical and mental health problems, past criminal convictions and addiction."
-data_description = "The data provided by UMD recorded different kinds of support that UMD provided for homeless people from 1931. It has more than 10 variables including date, family identifiers, financial support, etc."
+data_description = "provided by UMD recorded different kinds of support that UMD provided for homeless people from 1983. It has more than 10 variables including date, family identifiers, financial support, etc. However, the data before 2000 is too sparse and discrete so that the data may not provide sufficient and reliable information. Therefore, we will only focus on data during 2000 and 2019, which will provide most information in recent years."
 
 
 
@@ -15,7 +15,9 @@ purpose = c("What is the trend of Number of People Receiving Food Every Day over
             "What is the trend of Clothing Items UMD Provided Every Day over Time?",
             "How many food pounds does UMD provide for one person? Is there a difference among different families and people?")
 
-
+# ---Methods---
+method = c("For question 1-3, we give the plot of target variable over time to see its trend.",
+           "For question 4, we give the plot of Food Pounds against Number of People Receiving Food, and cluster data by EM Clustering. We use simple linear model to estimate average food pounds per person for each group.")
 
 # ---Data Preprocessing---
 # Load UMD data
@@ -79,13 +81,13 @@ trend <- function(variable){
 }
 
 # Trend plot interpretation
-trend_interpretation = tibble(`Number of People Receiving Food` = c("Number of People Receiving Food Every Day increases during 2005 and 2017, which is attributable to UMD’s great work.", 
+trend_interpretation = tibble(`Number of People Receiving Food` = c("Number of People Receiving Food Every Day increases during 2000 and 2017, which is attributable to UMD’s great work.", 
                                                               "The growth slowed down during 2010 and 2013, which indicates that UMD is ending some people’s homelessness.", 
                                                               "Number of People Receiving Every Day starts to decrease after 2017, which indicates that UMD has ended many people’s homelessness since 2017."),
-                              `Food Pounds` = c("Food Pounds UMD Provided Every Day generally increase during 2006 and 2017.",
+                              `Food Pounds` = c("Food Pounds UMD Provided Every Day generally increase during 2000 and 2017.",
                                                 "Food Pounds UMD Provided Every Day decrease during 2011 and 2013, which indicates that UMD is ending some people’s homelessness.",
                                                 "Food Pounds UMD Provided Every Day decrease after 2017, which indicates that UMD has ended many people’s homelessness since 2017."),
-                              `Clothing Items` = c("Clothing Items UMD Provided Every Day increase during 2002 and 2010.",
+                              `Clothing Items` = c("Clothing Items UMD Provided Every Day increase during 2002 and 2010, which suggests that UMD has been able to provide more and more clothing.",
                                                    "Clothing Items UMD Provided Every Day is a convex function of Time during 2011 and 2015.",
                                                    "Clothing Items UMD Provided Every Day start to decrease after 2015, which indicates that UMD has ended many people’s homelessness since 2015"))
 
