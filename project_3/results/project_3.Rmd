@@ -1,0 +1,44 @@
+---
+title: 'Project 3'
+author: "Jianqiao Wang"
+output:
+  html_document: default
+  pdf_document: default
+---
+```{r include=FALSE, warning=FALSE}
+library(tidyverse)
+# read data
+duration = read.csv(url("https://raw.githubusercontent.com/datasci611/bios611-projects-fall-2019-Jianqiao-Wang/master/project_3/scripts/duration.csv"))
+```
+
+### Backgroud and Introduction
+
+### How does length of stay relate to client demographics?
+```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
+# histogram of duration by race
+ggplot(data=duration, aes(x=duration)) +
+  geom_histogram(fill='blue') +
+  facet_wrap(~ClientPrimaryRace, scales='free_y', strip.position='bottom') +
+  theme_classic() +
+  theme(strip.text = element_text(size=7))
+```
+```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
+# histogram of duration by ethnicity
+ggplot(data=duration, aes(x=duration)) +
+  geom_histogram(fill='blue') +
+  facet_wrap(~ClientEthnicity, scales='free_y', strip.position='bottom') +
+  theme_classic() +
+  theme(strip.text = element_text(size=8))
+```
+
+```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
+# histogram of duration by veteran status
+ggplot(data=duration, aes(x=duration)) +
+  geom_histogram(fill='blue') +
+  facet_wrap(~ClientVeteranStatus, scales='free_y', strip.position='bottom') +
+  theme_classic() +
+  theme(strip.text = element_text(size=8))
+```
+
+
+<img src="linear_model.png" style="zoom:80%" align=center>
