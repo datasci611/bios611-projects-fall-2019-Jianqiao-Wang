@@ -1,4 +1,4 @@
-,Client ID,Entry Date,Exit Date,Client ID,ClientAge,ClientGender,ClientPrimaryRace,ClientEthnicity,ClientVeteranStatus,duration
+,Client ID,Entry Date,Exit Date,Client ID,Age,Gender,Race,Ethnicity,VeteranStatus,duration
 0,397941,2015-08-15,2016-07-11,397941,60.0,Female,White,Non-Hispanic/Non-Latino,No,331
 1,130335,2015-08-15,2015-08-31,130335,48.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,16
 2,188933,2015-08-15,2015-09-19,188933,42.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,35
