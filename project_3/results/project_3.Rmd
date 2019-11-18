@@ -11,9 +11,39 @@ library(tidyverse)
 duration = read.csv(url("https://raw.githubusercontent.com/datasci611/bios611-projects-fall-2019-Jianqiao-Wang/master/project_3/scripts/duration.csv"))
 ```
 
-### Backgroud and Introduction
+#### Backgroud and Introduction
+[Urban Ministries of Durham (UMD)](http://www.umdurham.org/) is a program that helps homeless people by providing neighbors with emergency shelter and case management to help them overcome barriers such as unemployment, medical and mental health problems, past criminal convictions and addiction.
+This dataset is from the shelter side of UMD. It includes a lot of data about clients upon entry to and exit from the shelter, including age, gender, race, mental health, income, insurance, and many other variables spread across many tables.
 
-### How does length of stay relate to client demographics?
+The main purpose of this project is to test whether client demographics have an effect on their length of stay in UMD. Specifically, we are interested in the effects of age, gender, race, ethnicity and veteran status. We will first plot the correlation between duration in UMD and different covariates. Then, we will use hypothesis tests to test each covariate's effect.
+
+#### Age
+Since age duration are both continuous variables, we can give their correlation by scatter plot.
+```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
+# duration by age
+ggplot(data=duration, aes(x=ClientAge, y=duration)) +
+  geom_point() +
+  geom_smooth() +
+  theme_classic()
+```
+As we can see, age may not have effects on duration.
+```{r message=FALSE, out.width='50%'}
+ggplot(data=duration, aes(x=duration)) +
+  geom_density()+
+  theme_classic()
+```
+
+#### Gender
+```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
+# histogram of duration by gender
+ggplot(data=duration, aes(x=duration)) +
+  geom_histogram(fill='blue') +
+  facet_wrap(~ClientGender, scales='free_y', strip.position='bottom') +
+  theme_classic() +
+  theme(strip.text = element_text(size=7))
+```
+
+#### Race
 ```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
 # histogram of duration by race
 ggplot(data=duration, aes(x=duration)) +
@@ -22,6 +52,8 @@ ggplot(data=duration, aes(x=duration)) +
   theme_classic() +
   theme(strip.text = element_text(size=7))
 ```
+
+#### Ethnicity
 ```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
 # histogram of duration by ethnicity
 ggplot(data=duration, aes(x=duration)) +
@@ -31,6 +63,8 @@ ggplot(data=duration, aes(x=duration)) +
   theme(strip.text = element_text(size=8))
 ```
 
+
+#### Veteran Status
 ```{r message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
 # histogram of duration by veteran status
 ggplot(data=duration, aes(x=duration)) +
@@ -40,5 +74,5 @@ ggplot(data=duration, aes(x=duration)) +
   theme(strip.text = element_text(size=8))
 ```
 
-
+#### Hypothesis Test
 <img src="linear_model.png" style="zoom:80%" align=center>

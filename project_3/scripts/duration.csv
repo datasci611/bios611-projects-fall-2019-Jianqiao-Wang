@@ -2011,7 +2011,6 @@
 2018,448742,2016-11-18,2017-02-03,448742,62.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,77
 2019,344697,2016-11-19,2016-11-20,344697,48.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,1
 2020,123118,2016-11-20,2016-12-01,123118,51.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,11
-2021,231428,2016-11-20,2016-11-20,231428,34.0,Female,White,Non-Hispanic/Non-Latino,No,0
 2022,182976,2016-11-18,2016-11-30,182976,54.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,12
 2023,215080,2016-11-21,2016-12-01,215080,32.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,10
 2024,443933,2016-11-21,2017-06-16,443933,50.0,Male,White,Non-Hispanic/Non-Latino,No,207
@@ -2051,11 +2050,9 @@
 2058,444667,2016-12-02,2016-12-12,444667,57.0,Male,White,Non-Hispanic/Non-Latino,Yes,10
 2059,335080,2016-12-02,2017-06-23,335080,45.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,203
 2060,209331,2016-12-02,2016-12-27,209331,57.0,Male,White,Hispanic/Latino,No,25
-2061,256529,2016-12-04,2016-12-04,256529,50.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 2062,161265,2016-12-04,2016-12-20,161265,52.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,16
 2063,200794,2016-12-04,2016-12-05,200794,50.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,1
 2064,287618,2016-12-04,2016-12-14,287618,47.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,10
-2065,167439,2016-12-04,2016-12-04,167439,65.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,0
 2066,389692,2016-12-03,2017-03-02,389692,39.0,Female,White,Non-Hispanic/Non-Latino,No,89
 2067,444361,2016-12-03,2016-12-04,444361,25.0,Female,White,Non-Hispanic/Non-Latino,No,1
 2068,168456,2016-12-05,2017-03-11,168456,44.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,96
@@ -2158,7 +2155,6 @@
 2165,174666,2017-01-04,2017-01-22,174666,51.0,Female,White,Non-Hispanic/Non-Latino,No,18
 2166,140006,2017-01-01,2017-01-18,140006,37.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,17
 2167,344697,2017-01-08,2017-01-10,344697,48.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,2
-2168,410002,2017-01-10,2017-01-10,410002,29.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 2169,215080,2017-01-09,2017-01-18,215080,32.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,9
 2170,430243,2017-01-07,2017-08-02,430243,27.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,207
 2171,325687,2017-01-08,2017-01-11,325687,41.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,3
@@ -2224,7 +2220,6 @@
 2231,447807,2017-01-18,2017-02-07,447807,47.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,20
 2232,334705,2017-01-24,2017-02-07,334705,64.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,14
 2233,429402,2017-01-25,2017-02-02,429402,20.0,Female,White,Non-Hispanic/Non-Latino,No,8
-2234,378313,2017-01-25,2017-01-25,378313,51.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 2235,378313,2017-01-25,2017-07-31,378313,51.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,187
 2236,208659,2017-01-26,2017-08-11,208659,27.0,Female,White,Non-Hispanic/Non-Latino,No,197
 2237,344697,2017-01-26,2017-01-27,344697,48.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,1
@@ -2267,7 +2262,6 @@
 2274,200794,2017-02-10,2017-02-12,200794,51.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,2
 2275,449322,2017-02-13,2017-05-02,449322,50.0,Male,White,Non-Hispanic/Non-Latino,No,78
 2276,128052,2017-02-13,2017-05-01,128052,46.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,77
-2277,344697,2017-02-13,2017-02-13,344697,48.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,0
 2278,346065,2017-02-13,2017-02-20,346065,52.0,Male,White,Hispanic/Latino,No,7
 2279,127847,2017-02-13,2017-02-19,127847,19.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,6
 2280,198803,2017-02-14,2017-02-19,198803,45.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,5
@@ -2289,7 +2283,6 @@
 2296,449769,2017-02-10,2017-03-09,449769,22.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,27
 2297,196740,2017-02-17,2017-02-23,196740,41.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,6
 2298,228541,2017-02-15,2017-06-30,228541,49.0,Female,White,Non-Hispanic/Non-Latino,No,135
-2299,326073,2017-02-20,2017-02-20,326073,42.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 2300,218081,2017-02-20,2017-02-24,218081,49.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,4
 2301,194756,2017-02-20,2017-03-07,194756,46.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,15
 2302,8104,2017-02-20,2017-03-20,8104,54.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,28
@@ -2315,7 +2308,6 @@
 2322,334496,2017-02-21,2017-03-03,334496,63.0,Female,Black or African American,Non-Hispanic/Non-Latino,Yes,10
 2323,450354,2017-02-28,2017-03-01,450354,25.0,Female,White,Non-Hispanic/Non-Latino,No,1
 2324,421416,2017-02-25,2017-03-20,421416,19.0,Male,Black or African American,Hispanic/Latino,No,23
-2325,206862,2017-03-02,2017-03-02,206862,33.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 2326,215248,2017-02-18,2017-04-27,215248,57.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,68
 2327,450442,2017-02-21,2017-05-30,450442,21.0,Male,American Indian or Alaska Native,Non-Hispanic/Non-Latino,No,98
 2328,1555,2017-03-02,2017-08-18,1555,31.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,169
@@ -2354,7 +2346,6 @@
 2361,174666,2017-03-07,2017-04-03,174666,52.0,Female,White,Non-Hispanic/Non-Latino,No,27
 2362,409781,2017-03-03,2017-05-08,409781,39.0,Female,White,Non-Hispanic/Non-Latino,No,66
 2363,447282,2017-03-07,2017-03-12,447282,20.0,Female,White,Non-Hispanic/Non-Latino,No,5
-2364,143273,2017-03-06,2017-03-06,143273,52.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 2365,429152,2017-03-08,2017-06-27,429152,32.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,111
 2366,224787,2017-03-09,2017-07-15,224787,66.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,128
 2367,206862,2017-03-11,2017-03-20,206862,33.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,9
@@ -2583,7 +2574,6 @@
 2590,169008,2017-05-30,2017-06-02,169008,59.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,3
 2591,208057,2017-06-01,2017-06-05,208057,52.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,4
 2592,453208,2017-06-02,2017-06-08,453208,61.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,6
-2593,186593,2017-06-03,2017-06-03,186593,48.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,0
 2594,347855,2017-06-02,2017-06-14,347855,27.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,12
 2595,169008,2017-06-04,2017-06-30,169008,60.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,26
 2596,2054,2017-06-05,2017-10-31,2054,64.0,Female,White,Non-Hispanic/Non-Latino,No,148
@@ -2751,7 +2741,6 @@
 2761,460751,2017-08-14,2017-08-31,460751,25.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,17
 2762,460752,2017-08-12,2017-09-05,460752,24.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,24
 2763,453205,2017-08-14,2017-09-29,453205,23.0,Male,White,Non-Hispanic/Non-Latino,No,46
-2764,67984,2017-08-14,2017-08-14,67984,49.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 2765,460865,2017-08-14,2017-09-29,460865,37.0,Female,White,Non-Hispanic/Non-Latino,No,46
 2766,296887,2017-08-14,2017-08-25,296887,63.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,11
 2767,460931,2017-08-15,2018-01-23,460931,53.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,161
@@ -2979,7 +2968,6 @@
 2993,433105,2017-11-20,2017-12-27,433105,27.0,Male,White,Non-Hispanic/Non-Latino,No,37
 2994,373728,2017-11-24,2018-01-17,373728,49.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,54
 2995,465084,2017-11-29,2018-02-28,465084,56.0,Female,White,Non-Hispanic/Non-Latino,No,91
-2996,436540,2017-11-27,2017-11-27,436540,27.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 2997,183537,2017-11-27,2018-01-05,183537,49.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,39
 2998,469497,2017-11-29,2017-11-30,469497,60.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,1
 2999,303331,2017-11-27,2017-12-18,303331,58.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,21
@@ -3675,7 +3663,6 @@
 3698,461824,2017-08-28,2018-11-07,461824,45.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,436
 3699,498539,2018-12-15,2018-12-27,498539,31.0,Female,White,Non-Hispanic/Non-Latino,No,12
 3700,367064,2018-12-15,2019-04-09,367064,45.0,Female,White,Non-Hispanic/Non-Latino,No,115
-3701,498540,2018-12-15,2018-12-15,498540,22.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,0
 3702,498541,2018-12-15,2018-12-24,498541,52.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,9
 3703,498542,2018-12-15,2019-01-11,498542,31.0,Male,White,Non-Hispanic/Non-Latino,No,27
 3704,200794,2018-12-17,2019-01-02,200794,52.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,16
@@ -3716,7 +3703,6 @@
 3741,499578,2018-12-28,2019-03-06,499578,20.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,68
 3742,218041,2018-12-21,2019-05-12,218041,38.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,142
 3743,404217,2018-12-19,2019-02-11,404217,28.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,54
-3744,499958,2019-01-06,2019-01-06,499958,42.0,Male,White,Non-Hispanic/Non-Latino,Yes,0
 3745,331506,2019-01-07,2019-03-29,331506,19.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,81
 3746,322232,2019-01-07,2019-03-29,322232,39.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,81
 3747,417907,2019-01-03,2019-01-08,417907,39.0,Female,White,Non-Hispanic/Non-Latino,No,5
@@ -4014,7 +4000,6 @@
 4060,181032,2019-06-10,2019-07-30,181032,31.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,50
 4061,477611,2019-06-11,2019-07-20,477611,42.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,39
 4062,507761,2019-06-22,2019-07-26,507761,19.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,34
-4063,1000661,2019-07-01,2019-07-01,1000661,26.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,0
 4064,267960,2019-07-01,2019-07-14,267960,58.0,Male,White,Non-Hispanic/Non-Latino,No,13
 4065,363624,2019-07-01,2019-07-03,363624,60.0,Female,White,Non-Hispanic/Non-Latino,No,2
 4066,311220,2019-06-14,2019-07-19,311220,50.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,35
@@ -4110,7 +4095,6 @@
 4173,505629,2019-09-03,2019-09-10,505629,32.0,Female,White,Non-Hispanic/Non-Latino,No,7
 4174,425490,2019-08-29,2019-10-05,425490,25.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,37
 4175,1001367,2019-09-03,2019-10-01,1001367,50.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,28
-4176,1002377,2019-09-03,2019-09-03,1002377,32.0,Female,Black or African American,Non-Hispanic/Non-Latino,No,0
 4179,420019,2019-08-29,2019-09-04,420019,56.0,Male,Black or African American,Non-Hispanic/Non-Latino,Yes,6
 4182,492054,2019-09-03,2019-10-14,492054,48.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,41
 4184,508716,2019-09-05,2019-09-28,508716,48.0,Male,Black or African American,Non-Hispanic/Non-Latino,No,23
