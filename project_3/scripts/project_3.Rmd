@@ -15,7 +15,24 @@ duration = read.csv("duration.csv")
 [Urban Ministries of Durham (UMD)](http://www.umdurham.org/) is a program that helps homeless people by providing neighbors with emergency shelter and case management to help them overcome barriers such as unemployment, medical and mental health problems, past criminal convictions and addiction.
 This dataset is from the shelter side of UMD. It includes a lot of data about clients upon entry to and exit from the shelter, including age, gender, race, mental health, income, insurance, and many other variables spread across many tables.
 
-The main purpose of this project is to test whether client demographics have an effect on their length of stay in UMD. Specifically, we are interested in the effects of age, gender, race, ethnicity and veteran status. We will first plot the correlation between duration in UMD and different covariates. Then, we will use hypothesis tests to test each covariate's effect.
+The main purpose of this project is to test whether client demographics have an effect on their length of stay in UMD. Specifically, we are interested in the effects of age, gender, race, ethnicity and veteran status. The following table presents ranges for these covariates:
+
+-----------------------------------------------------
+Covariate     Value
+---------     ---------------------------------------
+Race          American Indian or Alaska Native, White, Asian, Native Hawaiian or Other Pacific Islander, Black or African American
+
+Ethnicity     Non-Hispanic/Non-Latino, Hispanic/Latino
+
+VeteranStatus     No, Yes
+
+Gender        Female, Male, Trans Female (MTF or Male to Female)
+
+Age           [18 ,81]
+-----------------------------------------------------
+
+
+We will first plot the correlation between duration in UMD and different covariates. Then, we will use hypothesis tests to test each covariate's effect.
 
 #### Density Plot and Histograms
 First of all, we give the estimated density plot of duration
