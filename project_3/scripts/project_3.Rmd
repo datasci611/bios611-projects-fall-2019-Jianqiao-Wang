@@ -8,16 +8,16 @@ output:
 ```{r include=FALSE, warning=FALSE}
 library(tidyverse)
 # read data
-duration = read.csv(url("https://raw.githubusercontent.com/datasci611/bios611-projects-fall-2019-Jianqiao-Wang/master/project_3/scripts/duration.csv"))
+duration = read.csv("duration.csv")
 ```
 
-### Backgroud and Introduction
+#### Backgroud and Introduction
 [Urban Ministries of Durham (UMD)](http://www.umdurham.org/) is a program that helps homeless people by providing neighbors with emergency shelter and case management to help them overcome barriers such as unemployment, medical and mental health problems, past criminal convictions and addiction.
 This dataset is from the shelter side of UMD. It includes a lot of data about clients upon entry to and exit from the shelter, including age, gender, race, mental health, income, insurance, and many other variables spread across many tables.
 
 The main purpose of this project is to test whether client demographics have an effect on their length of stay in UMD. Specifically, we are interested in the effects of age, gender, race, ethnicity and veteran status. We will first plot the correlation between duration in UMD and different covariates. Then, we will use hypothesis tests to test each covariate's effect.
 
-### Density Plot and Histograms
+#### Density Plot and Histograms
 First of all, we give the estimated density plot of duration
 ```{r echo=FALSE, message=FALSE, out.width='50%', fig.align='center'}
 ggplot(data=duration, aes(x=duration)) +
@@ -32,7 +32,7 @@ As we can see, the density of duration is a decreasing function, which is simila
 # histogram of duration by gender
 ggplot(data=duration, aes(x=duration)) +
   geom_histogram(fill='blue') +
-  facet_wrap(~ClientGender, scales='free_y', strip.position='bottom') +
+  facet_wrap(~Gender, scales='free_y', strip.position='bottom') +
   theme_classic() +
   theme(strip.text = element_text(size=7)) +
   labs(title='Gender') +
@@ -43,7 +43,7 @@ ggplot(data=duration, aes(x=duration)) +
 # histogram of duration by race
 ggplot(data=duration, aes(x=duration)) +
   geom_histogram(fill='blue') +
-  facet_wrap(~ClientPrimaryRace, scales='free_y', strip.position='bottom') +
+  facet_wrap(~Race, scales='free_y', strip.position='bottom') +
   theme_classic() +
   labs(title='Race') +
   theme(plot.title = element_text(hjust = 0.5, size=24),
@@ -56,7 +56,7 @@ ggplot(data=duration, aes(x=duration)) +
 # histogram of duration by ethnicity
 ggplot(data=duration, aes(x=duration)) +
   geom_histogram(fill='blue') +
-  facet_wrap(~ClientEthnicity, scales='free_y', strip.position='bottom') +
+  facet_wrap(~Ethnicity, scales='free_y', strip.position='bottom') +
   theme_classic() +
   theme(strip.text = element_text(size=16)) +
   labs(title='Ethnicity') +
@@ -67,7 +67,7 @@ ggplot(data=duration, aes(x=duration)) +
 # histogram of duration by veteran status
 ggplot(data=duration, aes(x=duration)) +
   geom_histogram(fill='blue') +
-  facet_wrap(~ClientVeteranStatus, scales='free_y', strip.position='bottom') +
+  facet_wrap(~VeteranStatus, scales='free_y', strip.position='bottom') +
   theme_classic() +
   theme(strip.text = element_text(size=16)) +
   labs(title='Veteran Status') +
@@ -88,6 +88,17 @@ For link function $g(\cdot)$, indentity link, canonical link and log link are wi
 
 #### Hypothesis Test
 
-For our model, let 'Female', 'Hispanic/Latino', 'American Indian or Alaska Native', 'No' be reference groups for gender, ethnicity, race and veteran status respectively.
+For our model, let 'Female', 'Hispanic/Latino', 'American Indian or Alaska Native', 'No' be reference groups for gender, ethnicity, race and veteran status respectively. The summary of Gamma regression is as follows:
 
-<img src="gamma_regression.png" style="zoom:80%" align=center>
+<img src="gamma_regression.png" align=center/>
+
+As we can see, under 0.05 significance level, race doesn't have effects on duration. Moreover, gender, ethnicity and veteran status have effect on duration. Since our link function is a decreasing function, specifically,
+
+* Male has negative effect on duration comparing to female.
+
+* Non-Hispanic/Non-Latino have positive effect on duration comparing to Hispanic/Latino.
+
+* Veterans has negative effect on duration comparing to those who are not veterans.
+
+* Age has positive effect on duration. In other words, older clients will stay longer.
+
