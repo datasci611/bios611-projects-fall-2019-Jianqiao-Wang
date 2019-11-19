@@ -107,7 +107,11 @@ For link function $g(\cdot)$, indentity link, canonical link and log link are wi
 
 For our model, let 'Female', 'Hispanic/Latino', 'American Indian or Alaska Native', 'No' be reference groups for gender, ethnicity, race and veteran status respectively. The summary of Gamma regression is as follows:
 
-<img src="gamma_regression.png" align=center/>
+```{python echo=FALSE}
+from statsmodels.genmod.generalized_linear_model import GLMResults
+model = GLMResults.load("gamma_regression.pickle")
+model.summary()
+```
 
 As we can see, under 0.05 significance level, race doesn't have effects on duration. Moreover, gender, ethnicity and veteran status have effect on duration. Since our link function is a decreasing function, specifically,
 

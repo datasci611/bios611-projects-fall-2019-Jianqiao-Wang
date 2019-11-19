@@ -65,9 +65,4 @@ data.to_csv("duration.csv")
 model = smf.glm(formula='duration~Age+Gender+Ethnicity+Race+VeteranStatus', 
                 family=sm.families.Gamma(), data=data,).fit()
 
-# summary model into an image
-plt.rc('figure', figsize=(10.7, 4.5))
-plt.text(0.01, 0.05, str(model.summary()), {'fontsize': 10}, fontproperties = 'monospace')
-plt.axis('off')
-plt.tight_layout()
-plt.savefig('gamma_regression.png')
+model.save("gamma_regression.pickle")
