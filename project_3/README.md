@@ -1,8 +1,8 @@
-##Project 3
+## Project 3
 
 Jianqiao Wang
 
-####Background
+#### Background
 
 Urban Ministries of Durham helps homeless people by providing neighbors with emergency shelter and case management to help them overcome barriers such as unemployment, medical and mental health problems, past criminal convictions and addiction.
 
