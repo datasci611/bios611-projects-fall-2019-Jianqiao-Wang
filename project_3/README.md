@@ -10,12 +10,12 @@ Urban Ministries of Durham helps homeless people by providing neighbors with eme
 
 This dataset is from the shelter side of UMD. It includes a lot of data about clients upon entry to and exit from the shelter, including age, gender, race, mental health, income, insurance, and many other variables spread across many tables. Specifically, we are interested in clients demographics.
 
-| Covariate          | Value                                                       |
-| ------------------ | :---------------------------------------------------------- |
-| Client File Number | Family identifier (individual or family)                    |
-| Food Provided for  | Number of people in the family for which food was provided  |
-| Financial Support  | Money provided to clients. Service discontinued.            |
-| Client File Merge  | Separate files were created for one family and merged later |
+| Covariate     | Value                                                        |
+| ------------- | :----------------------------------------------------------- |
+| Race          | American Indian or Alaska Native, White, Asian, Native Hawaiian or Other Pacific Islander, Black or African American |
+| Ethnicity     | Non-Hispanic/Non-Latino, Hispanic/Latino                     |
+| VeteranStatus | No, Yes                                                      |
+| Gender        | Female, Male, Trans Female (MTF or Male to Female)           |
 
 #### Goals
 
