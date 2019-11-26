@@ -1,0 +1,6 @@
+Your project is well organized, and uses the required programming languages (R, Python, Docker, etc.). Your code is also well written and organized, as well as commented, making it easy
+to read and understand which code chunks do what. Your Readme and html files both provide detailed backgrounds on your project, however, they don't seem to clearly indicate how
+exactly you plan for UMD to utilize your figures and analyses. I.e., using your analyses and figures on duration, how do you think UMD can use said results to create new services or
+improve upon current ones? Additionally, in your html document, some of your latex code (in the distributional assumptions for your gamma regression section) does not seem to have
+rendered properly. You may also want to include a conclusions section in your report as a means by which you can summarize your findings and provide details on how they can assist UMD
+with its mission. If you make these changes to your project, I believe that it can be even better than it currently is. Good luck!
