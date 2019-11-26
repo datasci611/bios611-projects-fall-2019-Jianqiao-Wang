@@ -1,0 +1,45 @@
+1. Is the project organized modularly, with Make as the workflow manager?
+
+This project is organized clearly. And makefile has been created to help scripts run on VCL.
+
+2. Does the project use both Python (Pandas specifically) and R (Tidyverse specifically) scripts?
+
+The project use both pandas and tidyverse correctly. Your scripts are full of meaningful comments. Great job!
+
+3. Is Docker used to define execution environments appropriately?
+
+You haven't update a dockerfile on your github. Since docker is used to define environments on VCL, 'FROM' command maybe enough for this project. You can simply add anaconda on your VCL by Docker.
+
+4. Are the plots appropriate for the data types, the hypotheses being tested, and the points being communicated?
+
+Plots are appropriate. To make your purpose and analysis more clear, you could write a report or simply add your results in your README file.
+
+5. How can the project be organized or documented more clearly?
+
+The project is well-organized. To make it better, you can put all scripts including Makefile and Dockerfile in scripts directory and put all results including Rplots.pdf under results directory.
+
+6. Is the purpose of the project communicated clearly?
+
+Yes. Purpose has been clearly stated in README file.
+
+7. Does the purpose of the project make sense from the client’s point of view? How could the project better serve the client?
+
+To help your project better serve clients, you could add conclusion for clients.
+
+8. Is the source of the data made clear? (Remember that this project can be part of your public portfolios, so people not familiar with UMD may see it).
+
+Yes. You have a very detailed introduction to UMD and description of data.
+
+9. Is the interpretation of figures clearly explained?
+
+Actually, to complete your project, it's very necessary to add interpretation of your figures in your notebook or final report.
+
+10. Is the purpose and interpretation of analysis steps clearly communicated?
+
+Purpose have been clearly communicated. However, you only stated your results in your notebook without much interpretation. More interpretation of your analysis will help clients and people from UMD better understand your project.
+
+11. Are overall take-home messages clearly communicated?
+
+Yes.
+
+Overall, great job! Remember to add a final report or slide for presentation.
