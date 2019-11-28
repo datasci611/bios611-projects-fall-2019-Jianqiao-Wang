@@ -107,7 +107,7 @@ For link function $g(\cdot)$, indentity link, canonical link and log link are wi
 
 For our model, let 'Female', 'Hispanic/Latino', 'American Indian or Alaska Native', 'No' be reference groups for gender, ethnicity, race and veteran status respectively. The summary of Gamma regression is as follows:
 
-```{python echo=FALSE}
+```{python echo=FALSE, comment=NA}
 from statsmodels.genmod.generalized_linear_model import GLMResults
 model = GLMResults.load("gamma_regression.pickle")
 model.summary()
@@ -123,3 +123,16 @@ As we can see, under 0.05 significance level, race doesn't have effects on durat
 
 * Age has positive effect on duration. In other words, older clients will stay longer.
 
+#### Conclusion
+
+We have tested whether client demographics have an effect on their length of stay in UMD. Here are some findings:
+
+* Race doesn't have effects on duration.
+
+* Female and Trans Female will stay in UMD longer than Male.
+
+* Non-Hispanic/Non-Latino will generally stay longer in UMD than Hispanic/Latino.
+
+* Veterans will generally stay shorter in UMD than those who are not veterans.
+
+* Older clients will generally stay longer in UMD.

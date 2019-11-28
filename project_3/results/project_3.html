@@ -185,39 +185,50 @@ $(document).ready(function () {
 <div id="hypothesis-test" class="section level4">
 <h4>Hypothesis Test</h4>
 <p>For our model, let ‘Female’, ‘Hispanic/Latino’, ‘American Indian or Alaska Native’, ‘No’ be reference groups for gender, ethnicity, race and veteran status respectively. The summary of Gamma regression is as follows:</p>
-<pre><code>## &lt;class 'statsmodels.iolib.summary.Summary'&gt;
-## &quot;&quot;&quot;
-##                  Generalized Linear Model Regression Results                  
-## ==============================================================================
-## Dep. Variable:               duration   No. Observations:                 5125
-## Model:                            GLM   Df Residuals:                     5115
-## Model Family:                   Gamma   Df Model:                            9
-## Link Function:          inverse_power   Scale:                   2.42691154013
-## Method:                          IRLS   Log-Likelihood:                -23873.
-## Date:                Tue, 19 Nov 2019   Deviance:                       9584.0
-## Time:                        11:51:09   Pearson chi2:                 1.24e+04
-## No. Iterations:                     7                                         
-## =====================================================================================================================
-##                                                         coef    std err          z      P&gt;|z|      [0.025      0.975]
-## ---------------------------------------------------------------------------------------------------------------------
-## Intercept                                             0.0474      0.006      7.492      0.000       0.035       0.060
-## Gender[T.Male]                                        0.0034      0.001      2.843      0.004       0.001       0.006
-## Gender[T.Trans Female (MTF or Male to Female)]        0.0042      0.012      0.355      0.723      -0.019       0.028
-## Ethnicity[T.Non-Hispanic/Non-Latino]                 -0.0099      0.004     -2.240      0.025      -0.018      -0.001
-## Race[T.Asian]                                        -0.0128      0.016     -0.793      0.428      -0.044       0.019
-## Race[T.Black or African American]                     0.0007      0.004      0.177      0.859      -0.007       0.009
-## Race[T.Native Hawaiian or Other Pacific Islander]     0.0058      0.018      0.322      0.748      -0.029       0.041
-## Race[T.White]                                         0.0027      0.004      0.651      0.515      -0.005       0.011
-## VeteranStatus[T.Yes]                                  0.0041      0.002      2.181      0.029       0.000       0.008
-## Age                                                  -0.0004   4.39e-05     -8.237      0.000      -0.000      -0.000
-## =====================================================================================================================
-## &quot;&quot;&quot;</code></pre>
+<pre><code>&lt;class 'statsmodels.iolib.summary.Summary'&gt;
+&quot;&quot;&quot;
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               duration   No. Observations:                 5125
+Model:                            GLM   Df Residuals:                     5115
+Model Family:                   Gamma   Df Model:                            9
+Link Function:          inverse_power   Scale:                   2.42691154013
+Method:                          IRLS   Log-Likelihood:                -23873.
+Date:                Wed, 27 Nov 2019   Deviance:                       9584.0
+Time:                        21:52:49   Pearson chi2:                 1.24e+04
+No. Iterations:                     7                                         
+=====================================================================================================================
+                                                        coef    std err          z      P&gt;|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------
+Intercept                                             0.0474      0.006      7.492      0.000       0.035       0.060
+Gender[T.Male]                                        0.0034      0.001      2.843      0.004       0.001       0.006
+Gender[T.Trans Female (MTF or Male to Female)]        0.0042      0.012      0.355      0.723      -0.019       0.028
+Ethnicity[T.Non-Hispanic/Non-Latino]                 -0.0099      0.004     -2.240      0.025      -0.018      -0.001
+Race[T.Asian]                                        -0.0128      0.016     -0.793      0.428      -0.044       0.019
+Race[T.Black or African American]                     0.0007      0.004      0.177      0.859      -0.007       0.009
+Race[T.Native Hawaiian or Other Pacific Islander]     0.0058      0.018      0.322      0.748      -0.029       0.041
+Race[T.White]                                         0.0027      0.004      0.651      0.515      -0.005       0.011
+VeteranStatus[T.Yes]                                  0.0041      0.002      2.181      0.029       0.000       0.008
+Age                                                  -0.0004   4.39e-05     -8.237      0.000      -0.000      -0.000
+=====================================================================================================================
+&quot;&quot;&quot;</code></pre>
 <p>As we can see, under 0.05 significance level, race doesn’t have effects on duration. Moreover, gender, ethnicity and veteran status have effect on duration. Since our link function is a decreasing function, specifically,</p>
 <ul>
 <li><p>Male has negative effect on duration comparing to female.</p></li>
 <li><p>Non-Hispanic/Non-Latino have positive effect on duration comparing to Hispanic/Latino.</p></li>
 <li><p>Veterans has negative effect on duration comparing to those who are not veterans.</p></li>
 <li><p>Age has positive effect on duration. In other words, older clients will stay longer.</p></li>
+</ul>
+</div>
+<div id="conclusion" class="section level4">
+<h4>Conclusion</h4>
+<p>We have tested whether client demographics have an effect on their length of stay in UMD. Here are some findings:</p>
+<ul>
+<li><p>Race doesn’t have effects on duration.</p></li>
+<li><p>Female and Trans Female will stay in UMD longer than Male.</p></li>
+<li><p>Non-Hispanic/Non-Latino will generally stay longer in UMD than Hispanic/Latino.</p></li>
+<li><p>Veterans will generally stay shorter in UMD than those who are not veterans.</p></li>
+<li><p>Older clients will generally stay longer in UMD.</p></li>
 </ul>
 </div>
 
