@@ -113,7 +113,7 @@ model = GLMResults.load("gamma_regression.pickle")
 model.summary()
 ```
 
-As we can see, under 0.05 significance level, race doesn't have effects on duration. Moreover, gender, ethnicity and veteran status have effect on duration. Since our link function is a decreasing function, specifically,
+As we can see, under 0.05 significance level, race doesn't have effects on duration. Moreover, gender, ethnicity and veteran status have effect on duration. Since our link function is an increasing function, specifically,
 
 * Male has negative effect on duration comparing to female.
 

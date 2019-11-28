@@ -192,27 +192,27 @@ $(document).ready(function () {
 Dep. Variable:               duration   No. Observations:                 5125
 Model:                            GLM   Df Residuals:                     5115
 Model Family:                   Gamma   Df Model:                            9
-Link Function:          inverse_power   Scale:                   2.42691154013
-Method:                          IRLS   Log-Likelihood:                -23873.
-Date:                Wed, 27 Nov 2019   Deviance:                       9584.0
-Time:                        22:31:43   Pearson chi2:                 1.24e+04
-No. Iterations:                     7                                         
+Link Function:               identity   Scale:                   2.40997858525
+Method:                          IRLS   Log-Likelihood:                -23863.
+Date:                Thu, 28 Nov 2019   Deviance:                       9582.6
+Time:                        11:07:03   Pearson chi2:                 1.23e+04
+No. Iterations:                     9                                         
 =====================================================================================================================
                                                         coef    std err          z      P&gt;|z|      [0.025      0.975]
 ---------------------------------------------------------------------------------------------------------------------
-Intercept                                             0.0474      0.006      7.492      0.000       0.035       0.060
-Gender[T.Male]                                        0.0034      0.001      2.843      0.004       0.001       0.006
-Gender[T.Trans Female (MTF or Male to Female)]        0.0042      0.012      0.355      0.723      -0.019       0.028
-Ethnicity[T.Non-Hispanic/Non-Latino]                 -0.0099      0.004     -2.240      0.025      -0.018      -0.001
-Race[T.Asian]                                        -0.0128      0.016     -0.793      0.428      -0.044       0.019
-Race[T.Black or African American]                     0.0007      0.004      0.177      0.859      -0.007       0.009
-Race[T.Native Hawaiian or Other Pacific Islander]     0.0058      0.018      0.322      0.748      -0.029       0.041
-Race[T.White]                                         0.0027      0.004      0.651      0.515      -0.005       0.011
-VeteranStatus[T.Yes]                                  0.0041      0.002      2.181      0.029       0.000       0.008
-Age                                                  -0.0004   4.39e-05     -8.237      0.000      -0.000      -0.000
+Intercept                                             9.3277      7.305      1.277      0.202      -4.989      23.644
+Gender[T.Male]                                       -5.9836      2.084     -2.871      0.004     -10.068      -1.899
+Gender[T.Trans Female (MTF or Male to Female)]       -7.2215     12.036     -0.600      0.548     -30.811      16.368
+Ethnicity[T.Non-Hispanic/Non-Latino]                 12.0658      3.050      3.956      0.000       6.088      18.044
+Race[T.Asian]                                        33.0371     56.981      0.580      0.562     -78.643     144.717
+Race[T.Black or African American]                     2.2976      6.093      0.377      0.706      -9.644      14.239
+Race[T.Native Hawaiian or Other Pacific Islander]    -4.4698     13.911     -0.321      0.748     -31.735      22.795
+Race[T.White]                                        -1.6757      6.210     -0.270      0.787     -13.847      10.496
+VeteranStatus[T.Yes]                                 -7.1503      2.638     -2.711      0.007     -12.320      -1.980
+Age                                                   0.5167      0.064      8.087      0.000       0.391       0.642
 =====================================================================================================================
 &quot;&quot;&quot;</code></pre>
-<p>As we can see, under 0.05 significance level, race doesn’t have effects on duration. Moreover, gender, ethnicity and veteran status have effect on duration. Since our link function is a decreasing function, specifically,</p>
+<p>As we can see, under 0.05 significance level, race doesn’t have effects on duration. Moreover, gender, ethnicity and veteran status have effect on duration. Since our link function is an increasing function, specifically,</p>
 <ul>
 <li><p>Male has negative effect on duration comparing to female.</p></li>
 <li><p>Non-Hispanic/Non-Latino have positive effect on duration comparing to Hispanic/Latino.</p></li>
