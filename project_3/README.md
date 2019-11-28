@@ -26,7 +26,7 @@ The main purpose of this project is to test whether client demographics have an 
 Run the following command line to generate project 3 report: **project_3.html**.
 
 ```
-git clone https://github.com/datasci611/bios611-projects-fall-2019-Jianqiao-Wang.git && cd project_3 && make
+git clone https://github.com/datasci611/bios611-projects-fall-2019-Jianqiao-Wang.git && cd bios611-projects-fall-2019-Jianqiao-Wang/project_3 && make
 ```
 
 #### Tools
