@@ -63,6 +63,6 @@ data.to_csv("./results/duration.csv")
 
 # gamma regression to test effect of different covariates
 model = smf.glm(formula='duration~Age+Gender+Ethnicity+Race+VeteranStatus', 
-                family=sm.families.Gamma(), data=data,).fit()
+                family=sm.families.Gamma(statsmodels.genmod.families.links.identity), data=data,).fit()
 
 model.save("./results/gamma_regression.pickle")
