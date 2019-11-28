@@ -23,13 +23,11 @@ The main purpose of this project is to test whether client demographics have an 
 
 #### Make
 
-All codes and scripts are in directory **scripts/** . One could use **scp** to upload **scripts/** to VCL. After that, one only need to run
+Run the following command line to generate project 3 report: **project_3.html**.
 
 ```
-make
+git clone https://github.com/datasci611/bios611-projects-fall-2019-Jianqiao-Wang.git && cd project_3 && make
 ```
-
-on the command line to obtain project 3 report: **project_3.html**. 
 
 #### Tools
 
