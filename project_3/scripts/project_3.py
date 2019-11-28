@@ -59,10 +59,10 @@ data["Ethnicity"]=data["Ethnicity"].apply(remove_HUD)
 data["VeteranStatus"]=data["VeteranStatus"].apply(remove_HUD)
 
 # save data
-data.to_csv("duration.csv")
+data.to_csv("./results/duration.csv")
 
 # gamma regression to test effect of different covariates
 model = smf.glm(formula='duration~Age+Gender+Ethnicity+Race+VeteranStatus', 
                 family=sm.families.Gamma(), data=data,).fit()
 
-model.save("gamma_regression.pickle")
+model.save("./results/gamma_regression.pickle")
